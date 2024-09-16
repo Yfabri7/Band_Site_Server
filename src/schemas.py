@@ -5,14 +5,12 @@ class UserCreate(BaseModel):
     password: str
     instrument: str
 
-# Which fields are sent back to the client
 class UserOut(BaseModel):
     username: str
     instrument: str
     is_admin: bool
 
     class Config:
-        # Tells Pydantic to read the data not from simple dictionaries but from ORM objects (like SQLAlchemy models), allowing Pydantic to work directly with database models.
         from_attributes = True
 
 class Token(BaseModel):
